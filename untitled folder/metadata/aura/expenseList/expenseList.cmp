@@ -1,0 +1,27 @@
+<aura:component>
+	<aura:attribute name="expense" type="rgohLightning.Expense__c"/>
+
+  <!-- Color the item blue if the expense is reimbursed -->
+  <div class="{!v.expense.rgohLightning__Reimbursed__c == true 
+                   ? 'listRecord recordLayout blue' : 'listRecord recordLayout white'}">
+    <a aura:id="expense" href="{!'/' + v.expense.Id}">
+      <div class="itemTitle">{!v.expense.Name}</div>
+      <div class="recordItem">Amount: 
+          <ui:outputNumber 
+           value="{!v.expense.rgohLightning__Amount__c}" format=".00"/>
+      </div>
+      <div class="recordItem">Client: 
+          <ui:outputText 
+           value="{!v.expense.rgohLightning__Client__c}"/>
+      </div>
+      <div class="recordItem">Date: 
+          <ui:outputDateTime
+           value="{!v.expense.rgohLightning__Date__c}" />
+      </div>
+      <div class="recordItem">Reimbursed? 
+          <ui:inputCheckbox 
+           value="{!v.expense.rgohLightning__Reimbursed__c}" click="{!c.update}"/>
+      </div>
+    </a>
+  </div>
+</aura:component>

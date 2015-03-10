@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="expense" type="rgohLightning.Expense__c"/>
+</aura:event>
